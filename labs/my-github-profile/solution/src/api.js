@@ -4,10 +4,13 @@ import { USERNAME, API_URL } from "./config";
 
 export async function fetchUserData() {
   const { data } = await axios.get(`${API_URL}/users/${USERNAME}`);
+
+  console.log(data)
   return data;
+
 }
 
-export async function fetchMyRepositories() { 
+export async function fetchMyRepositories() {
   const { data } = await axios.get(`${API_URL}/users/${USERNAME}/repos`);
   return data;
 }

@@ -1,0 +1,22 @@
+{
+  "name": "webbmobilapplikation",
+  "version": "1.0.0",
+  "description": "This repository is meant for CME students to access exercises and codealongs that happen throughout the course.",
+  "main": "randomizer.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samina-tenso/webbmobilapplikation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samina-tenso/webbmobilapplikation/issues"
+  },
+  "homepage": "https://github.com/Samina-tenso/webbmobilapplikation#readme"
+}
