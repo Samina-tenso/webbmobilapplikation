@@ -3,9 +3,9 @@
 // Skriv en funktion som räknar antalet tecken
 // som anges som parameter till funktionen
 
-function count() {
+function count(array1) {
+  return numbers = array1.length
   // Skriv din kod här inne
-
 }
 
 // Ändra inte dessa

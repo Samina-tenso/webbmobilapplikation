@@ -5,8 +5,9 @@
 // framför allt.
 // Använd dig av .map()
 
-function christmasify() {
+function christmasify(array1) {
   // Skriv din kod här
+  return array1.map(item => `Jul${item}`)
 
 }
 
