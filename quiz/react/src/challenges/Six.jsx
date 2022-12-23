@@ -12,15 +12,18 @@ function Six() {
   const [input, setInput] = useState({})
 
   function handleInput(e) {
+    const { target: { name, value } } = e
+    let inputName = name
     // Rör inte funktionen nedan
-    setInput(input => ({ ...input, [inputName]: value}))
+    setInput(input => ({ ...input, [inputName]: value }))
+    console.log(input)
   }
 
   return (
     <div>
-      <p data-testid="six-text">Hi, my name is: {input} {input}</p>
-      <input type="text" name="firstName" data-testid="six-firstName" />
-      <input type="text" name="lastName" data-testid="six-lastName" />
+      <p data-testid="six-text">Hi, my name is: {input.firstName} {input.lastName}</p>
+      <input type="text" name="firstName" data-testid="six-firstName" onChange={(e) => handleInput(e)} />
+      <input type="text" name="lastName" data-testid="six-lastName" onChange={(e) => handleInput(e)} />
     </div>
   )
 }

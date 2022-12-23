@@ -6,9 +6,10 @@ const Item = (props) => {
   if (typeof text === "string") {
     return <p data-testid="three-faulty-item">Inte ett nummer</p>
   }
-
   // Men detta går bra
-  <p data-testid="three-item">{number}</p>
+  return (
+    <p data-testid="three-item">{props.number}</p>
+  )
 }
 
 
@@ -17,14 +18,18 @@ const Item = (props) => {
 // Men se till att den filtrerar ut de som inte är nummer.
 // Item ska alltså inte skriva ut "Inte ett nummer"
 
-const Three = () => {
-
-  const numericItems = []
-
+const Three = ({ items }) => {
+  let numericItems = []
+  numericItems = items.reduce(function (numericItems, item) {
+    if (typeof item === 'number') {
+      numericItems.push(item)
+    }
+    return numericItems
+  }, [])
   return (
     <div>
       {
-        numericItems.map()
+        numericItems.map(item => < Item number={item} />)
       }
     </div>
   );

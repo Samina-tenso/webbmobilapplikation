@@ -7,7 +7,6 @@ test("Solved Four", async () => {
 
   const loading = screen.getByTestId("four-loading");
   expect(loading.textContent).toBe("Loading...");
-
   const text = await screen.findByTestId("four-name");
   expect(text.textContent).toBe("My name is: Terry");
   expect(text.textContent).not.toBe("My name is: ");

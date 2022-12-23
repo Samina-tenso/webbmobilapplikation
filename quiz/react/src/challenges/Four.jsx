@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 
 // Den här komponenten har ett par stycken problem och
 // saknar några delar. Mer exakt: 5 stycken.
@@ -9,23 +10,34 @@ import React from 'react'
 
 const Four = () => {
   const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   const getData = async (url) => {
     const response = await fetch(url)
-    const data = response.json();
+    const data = await response.json();
+    return data
   }
 
   async function getUser() {
-    const user = getData("https://dummyjson.com/users/1")
-    setUser(user);
+    const user = await getData("https://dummyjson.com/users/1")
+    if (user) {
+      setUser(user);
+      setLoading(false)
+    }
+    return
   }
+  useEffect(() => {
+    getUser()
+  }, [])
 
-
+  if (loading) {
+    return <div data-testid="four-loading">Loading...</div>
+  }
   // Rör inte koden under denna kommentaren
+
   if (!user) {
     return <div data-testid="four-name">No user found</div>
   }
-
   return (
     <div data-testid="four-name">My name is: {user.firstName}</div>
   )
